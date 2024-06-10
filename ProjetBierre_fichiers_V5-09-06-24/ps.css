@@ -1,0 +1,142 @@
+/*Partie Connexion et formulaire*/
+#re {
+    width: 50%;
+    margin: auto;
+    padding: 15px;
+    border: 2px solid white;
+    border-radius: 20px;
+    background-color: rgba(167, 175, 119,0.85); /* 85% de transparence */
+    box-shadow: 18px -15px 15px rgba(167, 175, 119,0.80);
+}
+#cobody {
+    background-image: url(./imge/bois.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.tex{
+    font-size: 1.5em;
+    font-weight: bold;
+}
+#c{
+    font-weight: bold;
+    text-align: center;
+}
+.erreur{
+    font-size: 1.3em;
+    font-weight: bold;
+    color: red;
+
+}
+strong{
+    background-color: rgb(60, 60, 60,0.8);
+}
+#mise{
+        margin: 2%;
+    }
+    #ss{
+        margin: auto;
+        background-color: red;
+        text-align: center;
+    }
+
+
+    #deco {
+
+        text-align: center;
+    }
+    #deco1 {
+        text-align: center;
+    }
+
+/*Partie Index et suite*/
+
+li{
+    list-style-type: none;
+}
+a {
+    color: whitesmoke;
+    font-weight: bold;
+    text-decoration: none;
+    /*Mettre de l'écart entre les liens*/
+    padding-left: 10px;
+    padding-right: 10px; 
+    
+}
+
+#to{
+    color: rgb(156, 255, 233);
+    padding-top: 1.5%;
+    padding-left: 0;
+    padding-right: 4%; 
+    font-weight: bold;
+}
+
+.cob{
+    margin-top: 5.5%;
+    /*background-image: url(./imge/fut.jpg);*/
+    background-size: cover;
+    }
+
+#ho{
+        margin: auto;
+        font-weight: bold;
+    }
+
+#boi{
+    background-image: url(./imge/navboisar.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+#boi::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.45); /* Noir avec 50% d'opacité */
+    z-index: -1;
+}
+
+.card-img-top{
+    max-width: 50%;
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+
+  }
+
+  #ca{
+    background-image: url(./imge/ca.jpg);
+    background-size: cover;
+  }
+
+#Connection{
+    max-width: 30%;
+    height: auto;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textes{
+    color: white;
+    font-weight: bold;
+}
+/*Footer*/
+
+footer{
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+body{
+background-color: rgb(226, 225, 169);
+}
