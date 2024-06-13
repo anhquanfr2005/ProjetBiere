@@ -68,7 +68,6 @@
                         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <fieldset> 
                             <label for="id_biere">Biere :</label>
-                            <select id="id_biere" name="biere" size="1">
                                 <?php // on se sert de value directement pour l'insertion
                                 $madb2 = new PDO("sqlite:BDD_user/biere.sqlite");
                                 $rq = "SELECT DISTINCT NoBiere, Brasseur from Biere";
@@ -82,22 +81,23 @@
                                 $rq3 = "SELECT * from Stock_cave where NoBiere = $id";
                                 $res3 = $madb2->query($rq3);
                                 $tab3 = $res3->fetchAll(PDO::FETCH_ASSOC);
+                            
+                            echo '<select id="id_biere" name="biere" size="1">'; // ouverture de la liste déroulante
 
                                 foreach ($tab as $key => $value){
                                     if ($value['NoBiere'] == $id){
                                     echo '<option value= '.$value['NoBiere'].'>'.$value['Brasseur'].'</option>';
                                 }
                             }
-
+                            echo '</select>'; 
                                 foreach ($tab2 as $key => $va){
-                                echo '<label for="prix">Prix actuelle : </label><input type="text" value='.$va['prix'].' name="Quantite" id="prix" >$<br>';
+                                echo '<label for="prix"></label><input type="text" value='.$va['prix'].' name="Quantite" id="prix" >$<br>';
                                 echo '<br><label for="pays">En provenance de : </label><input type="text" value='.$va['Pays'].' name="Quantite" id="pays" ><br>';
                                 }
                                 foreach ($tab3 as $k => $v){
                                     echo '<br><label for="id_quant">Nombre de bière dans le stock : </label><input type="text" value='.$v['Quantite'].' name="Quantite" id="id_quant" autofocus><br>';
                                     }
                                 ?>
-                            </select>
                             <label for="typebiere"> Type de Biere :</label>
                             <select name="type_B" id="typebiere">
                             <?php // on se sert de value directement pour l'insertion

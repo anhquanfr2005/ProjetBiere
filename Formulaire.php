@@ -1,4 +1,5 @@
 <?php
+/* ---------------------------------------------------------------------------------------------------- */
 
 	function Formulaireconnection(){
 	?>
@@ -24,6 +25,8 @@
 	</section>
 
 <?php
+/* ---------------------------------------------------------------------------------------------------- */
+
     }
 	function Choix(){
 
@@ -75,15 +78,14 @@
           </div>
       </div>
 			
-
 	
 	<?php
 	}
 
 
- 
-	function FormulaireAjoutStock(){
+/* ---------------------------------------------------------------------------------------------------- */
 
+	function FormulaireAjoutStock(){
 	?>
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 		<fieldset> 
@@ -94,7 +96,6 @@
 				$rq = "SELECT DISTINCT NoBiere, Brasseur from Biere";
 				$res = $madb->query($rq);
 				$tab = $res->fetchAll(PDO::FETCH_ASSOC);
-
 				foreach ($tab as $key => $value){
 					echo '<option value= '.$value['NoBiere'].'>'.$value['Brasseur'].'</option>';
 				}
@@ -108,9 +109,9 @@
 	<?php
 		echo "<br>";
 	}
+/* ---------------------------------------------------------------------------------------------------- */
 
 	function FormulaireAjoutBiere(){
-
 		?>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			<fieldset> 
@@ -136,9 +137,9 @@
 		<?php
 			echo "<br>";
 		}
+/* ---------------------------------------------------------------------------------------------------- */
 
 	function FormulaireModifStock(){
-
 		?>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 			<fieldset> 
@@ -170,9 +171,9 @@
 		<?php
 			echo "<br>";
 		}
-	
-		function FormulaireModbiere(){
+/* ---------------------------------------------------------------------------------------------------- */
 
+		function FormulaireModbiere(){
 			?>
 			<form action="modification.php?action=modifier_stock" method="post">
 				<fieldset> 
@@ -196,6 +197,8 @@
 			<?php
 				echo "<br>";
 			}
+
+/* ---------------------------------------------------------------------------------------------------- */
 
 		function FormulaireSupStock(){
 
@@ -226,7 +229,9 @@
 			<?php
 				echo "<br><br><br>";
 			}
-			
+
+/* ---------------------------------------------------------------------------------------------------- */
+
 			function FormulaireChoixBiere(){
 				?>
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -251,6 +256,8 @@
 				<?php
 					echo "<br>";
 				}
+/* ---------------------------------------------------------------------------------------------------- */
+
 		function choixType(){
 			?>
 
@@ -270,6 +277,8 @@
 				echo "<br>";
 			}
 			
+/* ---------------------------------------------------------------------------------------------------- */
+
 	function afficheTableau($tab){
 		echo '<table>';	
 		echo '<tr>';// les entetes des colonnes qu'on lit dans le premier tableau par exemple
@@ -283,6 +292,7 @@
 		}
 		echo '</table>';
 	}
+/* ---------------------------------------------------------------------------------------------------- */
 
 	function afficheindex(){
 		if ($_SESSION['statut'] == "admin"){
@@ -293,6 +303,11 @@
 			echo '<h2 class="textes">Top 5 de nos bières les plus vendues</h2>';
 		}
 	}
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* PARTIE CAPTCHA - SUPPRESSION - MODIFICATION */
+
 	function captcha(){
 		?> 
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -315,6 +330,9 @@
 		</form>
 		<?php
 	}
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* AFFICHAGE AJAX SUR PAGE INDEX */
 
 function afficheformbiereAJAX()
 {
@@ -339,11 +357,15 @@ function afficheformbiereAJAX()
 	<br>
 <?php
 } // fin afficheFormulaireEtudiantParVille
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* PARTIE COPYRIGHT */
 
 function copyrightF(){
 	echo '<footer>';
 	echo '<p>Copyright &copy;2024 by NGUYEN & ROINET</p>';
 	echo '</footer>';
 }
+/* ---------------------------------------------------------------------------------------------------- */
 
 ?>

@@ -2,6 +2,7 @@
 
 	session_start();
 
+/* PARTIE CONNEXION */
 	function authentification($mail,$pass){
 		$retour = false ;
 		$madb = new PDO('sqlite:BDD_user/comptes.sqlite'); 
@@ -21,6 +22,8 @@
 		exit();
 	}
 
+/* ---------------------------------------------------------------------------------------------------- */
+
 	function redirect($url,$tps)
 	{
 		$temps = $tps * 1000;
@@ -37,37 +40,43 @@
 		. "</script>\n";
 		
 	}
+/* ---------------------------------------------------------------------------------------------------- */
+
 		
-	function isAdmin($mail){
-		$retour = false ;
-		try{
-			// connexion à la base de données
-			$madb = new PDO('sqlite:BDD_user/comptes.sqlite');
-			//écriture de la requête 
-			$mail= $madb->quote($mail);
-			$rq = "SELECT STATUT FROM utilisateurs WHERE EMAIL = $mail";
-			//execution de la requête
-			$resultat = $madb->query($rq);
-			//var_dump($resultat);
-			//récupération des résultats
-			$tableau_assoc = $resultat->fetch(PDO::FETCH_ASSOC);
-			//var_dump($tableau_assoc);
-			if ($tableau_assoc != null){
-				if ($tableau_assoc['STATUT']=='admin') $retour = true;
-			}	
-		}
-		catch(PDOException $e){
-			echo "Erreur lors de l'authentification : ".$e->getMessage()."<br>";
-		}
+/* PARTIE Connexion */
+function isAdmin($mail){
+	$retour = false ;
+	try{
+		// connexion à la base de données
+		$madb = new PDO('sqlite:BDD_user/comptes.sqlite');
+		//écriture de la requête 
+		$mail= $madb->quote($mail);
+		$rq = "SELECT STATUT FROM utilisateurs WHERE EMAIL = $mail";
+		//execution de la requête
+		$resultat = $madb->query($rq);
+		//var_dump($resultat);
+		//récupération des résultats
+		$tableau_assoc = $resultat->fetch(PDO::FETCH_ASSOC);
+		//var_dump($tableau_assoc);
+		if ($tableau_assoc != null){
+			if ($tableau_assoc['STATUT']=='admin') $retour = true;
+		}	
+	}
+	catch(PDOException $e){
+		echo "Erreur lors de l'authentification : ".$e->getMessage()."<br>";
+	}
 
 
 
 		return $retour;	
 		
 	}
+/* ---------------------------------------------------------------------------------------------------- */
 
-	function connexion_bdd(){	// A faire
-		try	{ // Construire un objet PDO pour la BDD SQLITE fournie
+	/* PARTIE INSERTION Bière */
+// Connexion à la base de données
+	function connexion_bdd(){	
+		try	{
 			
 			$madb = new PDO('sqlite:BDD_user/biere.sqlite');	
 				
@@ -78,6 +87,7 @@
 		return $madb;
 	}
 
+/* PARTIE INSERTION Bière */
 	function AjoutStock($biere, $stock){
 		try	{ // Construire un objet PDO pour la BDD SQLITE fournie		try	{ // Construire un objet PDO pour la BDD SQLITE fournie
 		$madb = new PDO('sqlite:BDD_user/biere.sqlite');
@@ -118,7 +128,9 @@
 		$retour = $madb->exec($rq);
 		return $retour;
 	}
+/* ---------------------------------------------------------------------------------------------------- */
 
+/* PARTIE MOODIFICATION */
 	function ModifierStock($biere, $stock){
 		$retour=0;
 		try {
@@ -133,7 +145,9 @@
 		}
 	return $retour;
 }
-	
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* PARTIE Suppression  */
 function SupprimerBiere($NoB){
 	$madb = new PDO('sqlite:BDD_user/biere.sqlite');
 	$rq = "DELETE FROM biere where NoBiere = $NoB";
@@ -148,6 +162,9 @@ function SupprimerBiere($NoB){
 
 		return $retour;
 	}
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* PARTIE Listage de la base de donnée */
 	function listerstock(){
 		$retour = false;
 		$madb = new PDO('sqlite:BDD_user/biere.sqlite');
@@ -269,7 +286,7 @@ function SupprimerBiere($NoB){
 		
 	}
 
-	function listefiltrerBiere($type)
+function listefiltrerBiere($type)
 {
 	$retour=false;
 	$madb = new PDO('sqlite:BDD_user/biere.sqlite');
@@ -282,9 +299,9 @@ function SupprimerBiere($NoB){
 	if (sizeof($tableau_assoc)!=0) $retour = $tableau_assoc;
 	return $retour;
 }
+/* ---------------------------------------------------------------------------------------------------- */
 
-
-
+/* PARTIE Modification */
 if (isset($_POST["action"]) && ($_POST["action"]=="1")){
 	if ($_POST['cap'] == $_SESSION['code'] ) {
 		if ($_POST['qte'] && $_POST['biere'] && $_POST['pays'] && $_POST['prix'] && $_POST['qte'] && $_POST['typebiere']){
@@ -299,6 +316,8 @@ if (isset($_POST["action"]) && ($_POST["action"]=="1")){
 		echo "Erreur captcha incorrect ou timeout";
 	}
 }
+
+
 function insertBiere(){
 	$retour=false;
 	$madb = new PDO('sqlite:BDD_user/biere.sqlite');
@@ -306,7 +325,6 @@ function insertBiere(){
 	$biere = $_POST['biere'];
 	$rq = "UPDATE Stock_cave set Quantite = $qte WHERE NoBiere = $biere";
 	$resultat = $madb->exec($rq);
-
 }
 
 function ModifBiere(){
@@ -325,7 +343,9 @@ function ModifBiere(){
 		echo "Modification effectuée pour : ID biere = $biere, Quantité = $qte, Pays = $pays, Prix = $prix, Type de bière = $tb";
 	}
 }
+/* ---------------------------------------------------------------------------------------------------- */
 
+/* Partie Ajax vérification */
 if (isset($_POST["action"]) && ($_POST["action"]=="2") && $_POST['cap']== $_SESSION['code']) {
     supprBiere();
     $supprbiere = $_POST['supprbiere'];
@@ -334,6 +354,10 @@ if (isset($_POST["action"]) && ($_POST["action"]=="2") && $_POST['cap']== $_SESS
 if (isset($_POST["action"]) && ($_POST["action"]=="2") && $_POST['cap'] != $_SESSION['code']) {
     echo "Erreur captcha incorrect";
 }
+
+/* ---------------------------------------------------------------------------------------------------- */
+
+/* Partie Suppression  */
 function supprBiere(){
     $retour=false;
     $madb = new PDO('sqlite:BDD_user/biere.sqlite');
@@ -344,5 +368,5 @@ function supprBiere(){
         echo "Suppression de la bière effectuée pour : pour la bière = $supprbiere";
     }
 }
-
+/* ---------------------------------------------------------------------------------------------------- */
 ?>
