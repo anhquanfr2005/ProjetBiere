@@ -203,29 +203,31 @@
 		function FormulaireSupStock(){
 
 			?>
-			<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-				<fieldset style="margin-left:12%;"> 
-					<label for="id_stock">Stock :</label>
-					<select id="id_stock" name="NoStock" size="1">
-						<?php // on se sert de value directement pour l'insertion
-						$madb = new PDO("sqlite:BDD_user/biere.sqlite");
-						$rq = "SELECT DISTINCT NoStock, B.Brasseur,B.NoBiere, Quantite from Stock_cave as S inner join Biere as B on S.NoBiere = B.NoBiere";
-						$res = $madb->query($rq);
-						$tab = $res->fetchAll(PDO::FETCH_ASSOC);
-		
-						foreach ($tab as $key => $value){
-							echo '<option value= '.$value['NoBiere'].'>'.$value['NoStock'].' -> '.$value['Brasseur'].'->'.$value['Quantite'].'</option>';
-						}
-						?>
-					</select>
-					<br>
-					<input type="text" id="capa" name="captcha">
-					<img id="captch" src="captchaimg.php" onclick="this.src='captchaimg.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
-					<br>
-					<button type="button" value='2' onclick="suppr(this);">Supprimer</button>
-					<p id="message"></p>
-				</fieldset>
-			</form>
+			<article id="sur">
+				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+					<fieldset style="margin-left:12%;"> 
+						<label for="id_stock">Stock :</label>
+						<select id="id_stock" name="NoStock" size="1">
+							<?php // on se sert de value directement pour l'insertion
+							$madb = new PDO("sqlite:BDD_user/biere.sqlite");
+							$rq = "SELECT DISTINCT NoStock, B.Brasseur,B.NoBiere, Quantite from Stock_cave as S inner join Biere as B on S.NoBiere = B.NoBiere";
+							$res = $madb->query($rq);
+							$tab = $res->fetchAll(PDO::FETCH_ASSOC);
+			
+							foreach ($tab as $key => $value){
+								echo '<option value= '.$value['NoBiere'].'>'.$value['NoStock'].' -> '.$value['Brasseur'].'->'.$value['Quantite'].'</option>';
+							}
+							?>
+						</select>
+						<br>
+						<input type="text" id="capa" name="captcha">
+						<img id="captch" src="captchaimg.php" onclick="this.src='captchaimg.php?' + Math.random();" alt="captcha" style="cursor:pointer;">
+						<br>
+						<button type="button" value='2' onclick="suppr(this);">Supprimer</button>
+						<p id="message"></p>
+					</fieldset>
+				</form>
+			</article>
 			<?php
 				echo "<br><br><br>";
 			}
