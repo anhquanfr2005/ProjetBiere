@@ -31,10 +31,10 @@
             ?>
         </nav>
         <section class="supr">
-            <h1 class= "ti" >Suppression</h1>
+            <h2 class= "ti" >Suppression</h2>
         </section>
         <article>
-            <h1>Que voulez vous supprimer ?</h1>
+            <h2>Que voulez vous supprimer ?</h2>
             <ul>
             <li><a style="font-weight: bold;" class="btn btn-outline-danger" href="suppression.php?action=supprimer_stock" title="stock" role="button">Supprime un stock</a></li>
         </ul>
@@ -67,7 +67,7 @@ else{
             <?php
             if (isset($_GET['action'])) {
                 if ($_GET['action'] == 'supprimer_stock') {
-                echo '<h1>SUPPRIMER UN STOCK</h1>';
+
             if (!empty($_SESSION)){
                     if ($_SESSION["statut"] == "admin"){
                         echo'<br><br>';

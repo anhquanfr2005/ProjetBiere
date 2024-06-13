@@ -204,6 +204,7 @@
 
 			?>
 			<article id="sur">
+			<h2>SUPPRIMER UN STOCK</h2>
 				<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<fieldset style="margin-left:12%;"> 
 						<label for="id_stock">Stock :</label>
