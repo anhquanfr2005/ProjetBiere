@@ -102,7 +102,7 @@
 				?>
 			</select>
 			<br>
-			<label for="id_stock">Quantite à rajouter : </label><input type="integer" name="Quantite" id="id_quant"/><br />
+			<label for="id_quant">Quantite à rajouter : </label><input type="integer" name="Quantite" id="id_quant"/><br />
 			<input type="submit" value="Insérer"/>
 		</fieldset>
 	</form>
@@ -130,7 +130,7 @@
 				<input type="text" name="pays_biere" id="id_pays"><br>
 				<label for="id_prix">Prix : </label><input type="number" name="prix" id="id_prix">€<br>
 				<label for="id_quant">Quantite de départ : </label><input type="number" name="Quantite" id="id_quant"><br>
-				<label for="id_quant">Collez un Url ici pour ajouter une image</label><input type="text" name="image" id="id_quant"><br>
+				<label for="id_quant">Collez un Url ici pour ajouter une image</label><input type="text" name="image" id="image"><br>
 				<input type="submit" value="Insérer">
 			</fieldset>
 		</form>
