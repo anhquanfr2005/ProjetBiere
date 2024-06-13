@@ -31,7 +31,8 @@
         <?php
                 if (empty($_SESSION)) {
                     echo "Vous n'êtes ne vous êtes pas connecter vous allez être rediriger vers la page de connexion.";
-					redirect_2('connexion.php');
+					header("Location: connexion.php");
+                    exit;
                 }?>
         </header>
         <nav>
