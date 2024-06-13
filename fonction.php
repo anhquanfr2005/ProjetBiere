@@ -96,7 +96,7 @@ function isAdmin($mail){
 		$retour = $madb->exec($rq);
 		}// fin try
 		catch (Exception $e) {
-			redirect_2('insertion.php?action=inserer_stock');	
+			redirect('insertion.php?action=inserer_stock',0);
 					}// fin catch	
 		return $retour;
 	}
@@ -112,7 +112,7 @@ function isAdmin($mail){
 		$retour = $madb->exec($rq);
 		}// fin try
 		catch (Exception $e) {
-			redirect_2('insertion.php?action=inserer_biere');	
+			redirect('insertion.php?action=inserer_biere',0);
 					}// fin catch	
 		return $retour;
 	}
