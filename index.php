@@ -1,7 +1,11 @@
 <?php
 	include_once("Formulaire.php");
 	include_once("fonction.php");
-
+    if (empty($_SESSION)) {
+        echo "Vous n'êtes ne vous êtes pas connecter vous allez être rediriger vers la page de connexion.";
+        header("Location: connexion.php");
+        exit;
+    }
 	?>
 <!DOCTYPE html>
 <html lang="fr" >
@@ -27,13 +31,7 @@
 	<body class="cob">
 
         <header>
-            
-        <?php
-                if (empty($_SESSION)) {
-                    echo "Vous n'êtes ne vous êtes pas connecter vous allez être rediriger vers la page de connexion.";
-					header("Location: connexion.php");
-                    exit;
-                }?>
+
         </header>
         <nav>
 			
