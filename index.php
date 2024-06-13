@@ -2,8 +2,8 @@
 	include_once("Formulaire.php");
 	include_once("fonction.php");
     if (empty($_SESSION)) {
-        echo "Vous n'êtes ne vous êtes pas connecter vous allez être rediriger vers la page de connexion.";
-        header("Location: connexion.php");
+        echo "<h3 class='non'>Vous n'êtes ne vous êtes pas connecter ou vous n'avez pas les droits pour accéder à cette pages vous allez être rediriger vers la page index.</h3>";
+        redirect('connexion.php',0);
         exit;
     }
 	?>

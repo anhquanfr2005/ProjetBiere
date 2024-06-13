@@ -17,12 +17,12 @@
         <header>
         <?php
                 if (!empty($_SESSION) && isAdmin($_SESSION["login"]) == false) {
-                    echo "Vous n'êtes ne vous êtes pas connecter ou vous n'avez pas les droits pour accéder à cette pages vous allez être rediriger vers la page index.";
-					redirect_2('index.php',0.1);
+                    echo "<h3 class='non'>Vous n'êtes ne vous êtes pas connecter ou vous n'avez pas les droits pour accéder à cette pages vous allez être rediriger vers la page index.</h3>";
+                    redirect('index.php',0);
                 }
                     if (empty($_SESSION)) {
-                        echo "Vous n'êtes ne vous êtes pas connecter ou vous n'avez pas les droits pour accéder à cette pages vous allez être rediriger vers la page index.";
-                        redirect_2('connexion.php',0.1);
+                        echo "<h3 class='non'>Vous n'êtes ne vous êtes pas connecter ou vous n'avez pas les droits pour accéder à cette pages vous allez être rediriger vers la page index.</h3>";
+                        redirect('connexion.php',0);
                 }?>
         </header>
         <nav>

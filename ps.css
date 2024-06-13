@@ -216,3 +216,8 @@ border: 2px solid black;
     font-weight: bold;
     background-color: rgb(226, 225, 169);
 }
+
+.non{
+    text-align: center;
+    background-color: rgb(226, 225, 169);
+}
