@@ -106,7 +106,7 @@
 		</fieldset>
 	</form>
 	<?php
-		echo "<br/>";
+		echo "<br>";
 	}
 
 	function FormulaireAjoutBiere(){
@@ -249,7 +249,7 @@
 					</fieldset>
 				</form>
 				<?php
-					echo "<br/>";
+					echo "<br>";
 				}
 		function choixType(){
 			?>
@@ -267,7 +267,7 @@
 						?>
 		
 			<?php
-				echo "<br/>";
+				echo "<br>";
 			}
 			
 	function afficheTableau($tab){
@@ -309,8 +309,8 @@
 			}
 		}
 		?>
-		<br/>
-		<br/>
+		<br>
+		<br>
 		<input type="submit" name="submit">
 		</form>
 		<?php

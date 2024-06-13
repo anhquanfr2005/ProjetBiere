@@ -8,7 +8,7 @@
 		$mail= $madb->quote($mail);
 		$pass = $madb->quote($pass);
 		$rq = "SELECT EMAIL,PASS FROM utilisateurs WHERE EMAIL = ".$mail." AND PASS = ".$pass ;
-		//var_dump($rq);echo "<br/>";  	
+		//var_dump($rq);echo "<br>";  	
 		$resultat = $madb->query($rq);
 		$tableau_assoc = $resultat->fetchAll(PDO::FETCH_ASSOC);
 		if (sizeof($tableau_assoc)!=0) $retour = true;	
@@ -57,7 +57,7 @@
 			}	
 		}
 		catch(PDOException $e){
-			echo "Erreur lors de l'authentification : ".$e->getMessage()."<br/>";
+			echo "Erreur lors de l'authentification : ".$e->getMessage()."<br>";
 		}
 
 
@@ -128,7 +128,7 @@
 		$retour = $madb->exec($rq);
 	}
 	catch (PDOException $e) {
-		echo "Erreur lors de l'authentification : ".$e->getMessage()."<br/>";
+		echo "Erreur lors de l'authentification : ".$e->getMessage()."<br>";
 		
 		}
 	return $retour;
@@ -260,7 +260,7 @@ function SupprimerBiere($NoB){
 
 		}
 		catch(PDOException $e){
-			echo "Erreur lors de l'authentification : ".$e->getMessage()."<br/>";
+			echo "Erreur lors de l'authentification : ".$e->getMessage()."<br>";
 		}
 
 

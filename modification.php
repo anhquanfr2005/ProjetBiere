@@ -81,21 +81,20 @@
 
                                 foreach ($tab as $key => $value){
                                     if ($value['NoBiere'] == $id){
-                                    echo '<option value= '.$value['NoBiere'].'>'.$value['Brasseur'].'</option><br>';
+                                    echo '<option value= '.$value['NoBiere'].'>'.$value['Brasseur'].'</option>';
                                 }
                             }
 
                                 foreach ($tab2 as $key => $va){
-                                echo '<br><label for="id_quant">Prix actuelle : </label><input type="text" value='.$va['prix'].' name="Quantite" id="prix" autofocus>$<br>';
-                                echo '<br><label for="id_quant">En provenance de : </label><input type="text" value='.$va['Pays'].' name="Quantite" id="pays" autofocus><br>';
+                                echo '<label for="prix">Prix actuelle : </label><input type="text" value='.$va['prix'].' name="Quantite" id="prix" >$<br>';
+                                echo '<br><label for="pays">En provenance de : </label><input type="text" value='.$va['Pays'].' name="Quantite" id="pays" ><br>';
                                 }
                                 foreach ($tab3 as $k => $v){
                                     echo '<br><label for="id_quant">Nombre de bière dans le stock : </label><input type="text" value='.$v['Quantite'].' name="Quantite" id="id_quant" autofocus><br>';
                                     }
                                 ?>
-                                
                             </select>
-                            <label for="id_biereNo"> Type de Biere :</label>
+                            <label for="typebiere"> Type de Biere :</label>
                             <select name="type_B" id="typebiere">
                             <?php // on se sert de value directement pour l'insertion
 						$madb = new PDO("sqlite:BDD_user/biere.sqlite");
