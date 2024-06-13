@@ -102,8 +102,8 @@
 				?>
 			</select>
 			<br>
-			<label for="id_quant">Quantite à rajouter : </label><input type="integer" name="Quantite" id="id_quant"/><br />
-			<input type="submit" value="Insérer"/>
+			<label for="id_quant">Quantite à rajouter : </label><input type="number" name="Quantite" id="id_quant"><br >
+			<input type="submit" value="Insérer">
 		</fieldset>
 	</form>
 	<?php
